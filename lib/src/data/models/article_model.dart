@@ -1,5 +1,5 @@
-import '../../data/models/source_model.dart';
 import '../../domain/entities/article.dart';
+import 'source_model.dart';
 
 class ArticleModel extends Article {
   const ArticleModel({
@@ -26,6 +26,7 @@ class ArticleModel extends Article {
 
   factory ArticleModel.fromJson(Map<String, dynamic> map) {
     if (map == null) return null;
+
     return ArticleModel(
       source: SourceModel.fromJson(map['source'] as Map<String, dynamic>),
       author: map['author'] as String,

@@ -1,4 +1,3 @@
-
 import '../utils/constants.dart';
 
 class ArticlesRequestParams {
@@ -13,6 +12,6 @@ class ArticlesRequestParams {
     this.country = 'us',
     this.category = 'general',
     this.page = 1,
-    this.pageSize = 10,
+    this.pageSize = 20,
   });
 }

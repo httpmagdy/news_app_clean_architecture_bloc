@@ -3,7 +3,5 @@ import '../../core/resources/data_state.dart';
 import '../entities/article.dart';
 
 abstract class ArticlesRepository {
-  Future<DataState<List<Article>>> getBrakingNewsArticles(
-    ArticlesRequestParams params,
-  );
+  Future<DataState<List<Article>>> getBreakingNewsArticles(ArticlesRequestParams params);
 }

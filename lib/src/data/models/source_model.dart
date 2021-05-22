@@ -9,8 +9,10 @@ class SourceModel extends Source {
           name: name,
         );
 
-  factory SourceModel.fromJson(Map<String, dynamic> map) {
-    if (map == null) return null;
-    return SourceModel(id: map['id'] as String, name: map['name'] as String);
+  factory SourceModel.fromJson(Map<String, dynamic> json) {
+    return SourceModel(
+      id: json['id'] as String,
+      name: json['name'] as String,
+    );
   }
 }

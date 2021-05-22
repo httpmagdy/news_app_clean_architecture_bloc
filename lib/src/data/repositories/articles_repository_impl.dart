@@ -10,26 +10,30 @@ import '../datasources/remote/news_api_service.dart';
 
 class ArticlesRepositoryImpl implements ArticlesRepository {
   final NewsApiService _newsApiService;
+
   const ArticlesRepositoryImpl(this._newsApiService);
+
   @override
-  Future<DataState<List<Article>>> getBrakingNewsArticles(
-      ArticlesRequestParams params) async {
+  Future<DataState<List<Article>>> getBreakingNewsArticles(
+    ArticlesRequestParams params,
+  ) async {
     try {
-      final httpResponce = await _newsApiService.getBrakingNewsArticles(
+      final httpResponse = await _newsApiService.getBreakingNewsArticles(
         apiKey: params.apiKey,
-        category: params.category,
         country: params.country,
+        category: params.category,
         page: params.page,
         pageSize: params.pageSize,
       );
-      if (httpResponce.response.statusCode == HttpStatus.ok) {
-        return DataSuccess(httpResponce.data.articles);
+
+      if (httpResponse.response.statusCode == HttpStatus.ok) {
+        return DataSuccess(httpResponse.data.articles);
       }
       return DataFailed(
         DioError(
-          error: httpResponce.response.statusMessage,
-          request: httpResponce.response.request,
-          response: httpResponce.response,
+          error: httpResponse.response.statusMessage,
+          response: httpResponse.response,
+          request: httpResponse.response.request,
           type: DioErrorType.RESPONSE,
         ),
       );

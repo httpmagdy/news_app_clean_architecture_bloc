@@ -2,12 +2,14 @@ part of 'remote_articles_bloc.dart';
 
 abstract class RemoteArticlesState extends Equatable {
   final List<Article> articles;
-  final bool noMoreDate;
+  final bool noMoreData;
+
   final DioError error;
-  const RemoteArticlesState({this.articles, this.noMoreDate, this.error});
+
+  const RemoteArticlesState({this.articles, this.noMoreData, this.error});
 
   @override
-  List<Object> get props => [articles, error, noMoreDate];
+  List<Object> get props => [articles, noMoreData, error];
 }
 
 class RemoteArticlesLoading extends RemoteArticlesState {
@@ -15,8 +17,7 @@ class RemoteArticlesLoading extends RemoteArticlesState {
 }
 
 class RemoteArticlesDone extends RemoteArticlesState {
-  const RemoteArticlesDone(List<Article> articles, {bool noMoreDate})
-      : super(articles: articles, noMoreDate: noMoreDate);
+  const RemoteArticlesDone(List<Article> article, {bool noMoreData}) : super(articles: article, noMoreData: noMoreData);
 }
 
 class RemoteArticlesError extends RemoteArticlesState {

@@ -17,7 +17,7 @@ class _NewsApiService implements NewsApiService {
   String baseUrl;
 
   @override
-  Future<HttpResponse<BreakingNewsResponseModel>> getBrakingNewsArticles(
+  Future<HttpResponse<BreakingNewsResponseModel>> getBreakingNewsArticles(
       {apiKey, country, category, page, pageSize}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{

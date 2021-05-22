@@ -11,8 +11,8 @@ abstract class NewsApiService {
   factory NewsApiService(Dio dio, {String baseUrl}) = _NewsApiService;
 
   @GET('/top-headlines')
-  Future<HttpResponse<BreakingNewsResponseModel>> getBrakingNewsArticles({
-    @Query("apiKey", encoded: true) String apiKey,
+  Future<HttpResponse<BreakingNewsResponseModel>> getBreakingNewsArticles({
+    @Query("apiKey") String apiKey,
     @Query("country") String country,
     @Query("category") String category,
     @Query("page") int page,
